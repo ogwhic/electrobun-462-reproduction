@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hiddenInset initial bounds repro</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="titlebar electrobun-webkit-app-region-drag">
+        <div class="title-text">
+          <strong>hiddenInset bounds repro</strong>
+          <span>Initial DOM viewport is too large until native resize</span>
+        </div>
+        <div class="window-controls electrobun-webkit-app-region-no-drag">
+          <button id="minimize" type="button" title="Minimize">−</button>
+          <button id="maximize" type="button" title="Maximize">□</button>
+          <button id="close" class="close" type="button" title="Close">✕ CLOSE</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="hero">
+          <h1>Resize once and compare the numbers</h1>
+          <p>
+            The red close button is deliberately flush with the far right edge. On affected Windows
+            builds it should appear partially clipped on initial display, then snap into place after
+            manually resizing the window.
+          </p>
+          <div class="edge-marker">right-edge marker</div>
+        </section>
+
+        <section class="grid">
+          <article class="card initial-card">
+            <h2>Initial reported dimensions</h2>
+            <pre id="initial">Loading...</pre>
+          </article>
+          <article class="card resize-card">
+            <h2>After first resize event</h2>
+            <pre id="first-resize">Loading...</pre>
+          </article>
+          <article class="card live-card">
+            <h2>Current reported dimensions</h2>
+            <pre id="live">Loading...</pre>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
