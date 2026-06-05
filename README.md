@@ -11,14 +11,10 @@ This is a minimal reproduction for an Electrobun Windows `titleBarStyle: "hidden
 
 ## Run
 
-From this `tmp/` directory:
-
 ```sh
 bun install
 bun run dev
 ```
-
-If `electrobun` is already installed in a parent directory, `bun run dev` may also work without a separate install because Bun can resolve parent `node_modules`.
 
 ## Expected affected behavior
 
